@@ -1,0 +1,59 @@
+<br><br>
+<div class="container">
+    <form [formGroup]="form" class="row g-3 needs-validation" (ngSubmit)="agregarPersona()"  >
+        <div class="col-md-12">
+          <label for="validationCustom01" class="form-label">N de cedula</label>
+          <input type="text" class="form-control" formControlName="cedula" placeholder="cedula" required>
+          <div class="valid-feedback">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustom02" class="form-label">Nombre</label>
+          <input type="text" class="form-control" formControlName="nombre" placeholder="Apellido" required>
+          <div class="valid-feedback">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustom02" class="form-label">Apellido</label>
+          <input type="text" class="form-control" formControlName="apellido" placeholder="Apellido" required>
+          <div class="valid-feedback">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustomUsername" class="form-label">Fecha de nacimiento</label>
+          <div class="input-group has-validation">
+            <input type="date" class="form-control" formControlName="fechaNacimiento"  required>
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit">
+            <i class="bi bi-person-add"></i> Agregar nuevo
+        </button>
+    </form>
+      <br><br>
+      <div class="container">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Cedula</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Fecha de nacimiento</th>
+                <th scope="col">actions</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let persona of listPersona; let i = index">
+                <th scope="row">{{ i + 1 }}</th>
+                <th scope="row">{{ persona.cedula }}</th>
+                <th scope="row">{{ persona.nombre }}</th>
+                <th scope="row">{{ persona.apellido }}</th>
+                <th scope="row">{{ persona.fechaNacimiento }}</th>
+                <th><span class="cursor text-danger" (click)="eliminarEstudiante(i)">
+                    <i class="bi bi-trash"></i>
+                </span></th>
+                </tr>
+            </tbody>
+          </table>
+      </div>
+</div>
