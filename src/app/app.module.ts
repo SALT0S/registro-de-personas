@@ -7,8 +7,11 @@ import { MatTableModule } from '@angular/material/table';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-
 import { TableComponent } from './components/table/table.component';
+
+import { MatCardModule } from '@angular/material/card';
+
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -24,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     MatTableModule,
     BrowserAnimationsModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

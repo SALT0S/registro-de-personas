@@ -1,23 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Persona } from 'src/app/models/Persona';
 
-export interface Persona {
-  cedula: string,
-  nombre: string;
-  apellido: string;
-  fechaNacimiento: Date;
-}
-
-const ELEMENT_DATA: Persona[] = [
-  {cedula: '123456789', nombre: 'Hydrogen', apellido: 'H', fechaNacimiento: new Date()},
-  {cedula: '123456789', nombre: 'Helium', apellido: 'He', fechaNacimiento: new Date()},
-];
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent {
+export class TableComponent implements OnInit {
+
   displayedColumns: string[] = ['cedula', 'nombre', 'apellido', 'fechaNacimiento'];
-  dataSource = ELEMENT_DATA;
+
+  nombre = '';
+  apellido = '';
+  fechaNacimiento = new Date();
+  cedula = '';
+  listPersona: Persona[] = [];
+
+
+  agregarPersona() {
+    const persona: Persona = {
+      cedula: this.cedula,
+      nombre: this.nombre,
+      apellido: this.apellido,
+      fechaNacimiento: this.fechaNacimiento,
+    };
+
+    // Crear una nueva copia del array con el nuevo elemento
+    this.listPersona = [...this.listPersona, persona];
+
+    // Limpiar los campos de entrada
+    this.nombre = '';
+    this.apellido = '';
+    this.fechaNacimiento = new Date();
+    this.cedula = '';
+  }
+
+  ngOnInit() {
+    // you can leave this empty, or put initialization logic here
+  }
 }
