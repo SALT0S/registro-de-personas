@@ -1,0 +1,20 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  app-navbar {
+    /* Ajusta este valor según el tamaño que desees para la navbar */
+    flex: 0 0 50px;
+  }
+
+  app-table {
+    /* Este es el contenido principal, por lo que debería ocupar el espacio restante */
+    flex: 1 0 auto;
+  }
+
+  app-footer {
+    /* Ajusta este valor según el tamaño que desees para el footer */
+    flex: 0 0 50px;
+  }
